@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../src/style.css">
     <title>Weather App</title>
 </head>
@@ -21,19 +21,19 @@
         <div class="nav__right nav__rl">
             <ul>
                 <li class="nav__right__API">
-                    <a href="#">
+                    <a href="https://openweathermap.org/">
                         <img src="../src/assets/api.png" alt="">
                         <span>meet the API</span>
                     </a>
                 </li>
                 <li class="nav__right__contact">
-                    <a href="#">
+                    <a href="">
                         <img src="../src/assets/letter.png" alt="">
                         <span>contact me</span>
                     </a>    
                 </li>
                 <li class="nav__right__github">
-                    <a href="#">
+                    <a href="https://github.com/jhonneyp/weatherapp">
                         <img src="../src/assets/github.png" alt="">
                         <span>my repo</span>
                     </a>
@@ -43,10 +43,23 @@
     </nav>
     <div class="app">
         <section class="app__browser">
-            <input type="text" placeholder="insert a city name">
+            <input id="input" type="text" placeholder="insert a city name">
             <button type="button">search</button>
         </section>
-        <div class="app__cards_containter"></div>
+        <div id='root' class="app__cards_containter">
+            <div class="card">
+                <sup class="card__x">X</sup>
+                <div class="card__details">
+                    <p class="card__details__title" >London <sup>GB</sup></p>
+                    <p class="card__details__celcius">19 <span>°C</span></p>
+                </div>
+                <div class="card__image">
+                    <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="">
+                    <p>cloudy</p>
+                </div>
+            </div>
+
+        </div>
     </div>
     <footer class="footer">
         <ul class="footer__container">
@@ -59,5 +72,7 @@
             <li><a href="">accesibility service</a></li>
         </ul>
     </footer>
+
+    <script src="../src/index.js"></script>
 </body>
 </html>

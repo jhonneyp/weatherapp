@@ -79,13 +79,14 @@ body{
 
 .app{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 60px;
 }
 
 .app__browser{
-    display: contents;
+    display: flex;
+    margin: 5px auto 15px auto;
 }
 
 .app__browser input{
@@ -115,6 +116,68 @@ input:focus{
 
 .app__browser button:hover{
     cursor: pointer;
+}
+
+.card{
+    border-radius: 8px;
+    padding: 15px 20px 20px 20px;
+    background: #06283D;
+    width: 170px;
+    height: 230px;
+    color: white;
+    margin: 10px;
+    -webkit-box-shadow: 10px 10px 8px -3px rgba(184,184,184,0.77);
+    -moz-box-shadow: 10px 10px 8px -3px rgba(184,184,184,0.77);
+    box-shadow: 10px 10px 8px -3px rgba(184,184,184,0.77);
+}
+
+.card__x{
+    float: right;
+    font-weight: 300;
+    vertical-align: super;
+}
+
+.card__details .card__image{
+    height: 50%;
+}
+
+.card__details__title{
+    font-size: 18px;
+    font-weight: 300;
+    margin-top:16px;
+    margin-bottom: 10px;
+}
+
+.card__details__title sup{
+    vertical-align: super;
+    font-size: 10px;
+    font-weight: 700;
+    margin: 0;
+    background-color: orange;
+    padding: 2px 4px 2px 4px;
+    border-radius: 6px;
+}
+
+.card__details__celcius{
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card__image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__image img{
+    width: 100px;
+}
+
+.card__image p{
+    margin: 0;
+    font-size: 14px;
+    font-weight: lighter;
 }
 
 .footer{
