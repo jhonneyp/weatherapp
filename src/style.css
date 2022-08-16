@@ -86,7 +86,7 @@ body{
 
 .app__browser{
     display: flex;
-    margin: 5px auto 15px auto;
+    margin: 5px auto 25px auto;
 }
 
 .app__browser input{
@@ -116,6 +116,11 @@ input:focus{
 
 .app__browser button:hover{
     cursor: pointer;
+}
+
+.app__cards_containter{    
+    display: flex;
+    justify-content: center;
 }
 
 .card{

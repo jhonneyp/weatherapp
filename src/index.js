@@ -1,3 +1,5 @@
+import {kelvinToCelsius} from "./utils/kelvinToCelcius.js"
+
 const button = document.querySelector('button')
 const query = document.querySelector('#input')
 const root = document.querySelector('#root')
@@ -7,53 +9,36 @@ const URL = 'https://api.openweathermap.org/geo/1.0/direct?q='
 
 const KEY = '7769df492db2a8854a6ae56462f5121f'
 
-const fetchcity = async () => {
+const createCard = async () => {
     val = query.value
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val}&appid=${KEY}`)
     const data = await response.json()
 
-    return data
+    const { name, sys , main, weather } = data
+
+    console.log(name, sys , main, weather)
+
+    const card = `
+    <div class="card">
+    <sup class="card__x">X</sup>
+    <div class="card__details">
+        <p class="card__details__title" >${name} <sup>${sys.country}</sup></p>
+        <p class="card__details__celcius">${kelvinToCelsius(main.temp)}<span>°C</span></p>
+    </div>
+    <div class="card__image">
+        <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="">
+        <p>${weather[0].main}</p>
+    </div>
+    `
+    root.innerHTML += card
+    query.value = ""
 }
 
 
-const createCard = () => {
-    const weather = fetchcity()
 
-    const card = document.createElement('div')
-    card.className = 'weather_card'
-    
-    const cardDetails = document.createElement('div')
-    card.className = 'weather_card__details'
-    
-    const cityName = document.createElement('p')
-    cityName.className = 'weather_card__details__cityname'
-    cityName.innerText = `${weather}`
-    
-    const country = document.createElement('span')
-    card.className = 'weather_card__details__country'
-    
-    const temperature = document.createElement('p')
-    card.className = 'weather_card__details__temperature'
-    
-    const centigrade = document.createElement('span')
-    card.className = 'weather_card__details__centigrade'
-    
-    const cardImg = document.createElement('div')
-    card.className = 'weather_card__img'
-    
-    const weatherImg = document.createElement('img')
-    card.className = 'weather_card__img__img'
-    
-    const weatherDescription = document.createElement('p')
-    card.className = 'weather_card__img__text'
-    
-    return card
-}
-
-const addCard = () => {
-    const newCard = createCard()
-    root.append(newCard)
-}
-
-
-button.addEventListener('click', addCard)
+button.addEventListener('click', createCard)
+query.addEventListener('keypress', (e)=>{
+    if (e.key === 'Enter') {
+        createCard()
+      }
+})

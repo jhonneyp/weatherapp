@@ -43,22 +43,10 @@
     </nav>
     <div class="app">
         <section class="app__browser">
-            <input id="input" type="text" placeholder="insert a city name">
+            <input autocomplete="on" id="input" type="text" placeholder="insert a city name">
             <button type="button">search</button>
         </section>
         <div id='root' class="app__cards_containter">
-            <div class="card">
-                <sup class="card__x">X</sup>
-                <div class="card__details">
-                    <p class="card__details__title" >London <sup>GB</sup></p>
-                    <p class="card__details__celcius">19 <span>°C</span></p>
-                </div>
-                <div class="card__image">
-                    <img src="https://openweathermap.org/img/wn/04n@2x.png" alt="">
-                    <p>cloudy</p>
-                </div>
-            </div>
-
         </div>
     </div>
     <footer class="footer">
@@ -73,6 +61,6 @@
         </ul>
     </footer>
 
-    <script src="../src/index.js"></script>
+    <script type="module" src="../src/index.js"></script>
 </body>
 </html>
